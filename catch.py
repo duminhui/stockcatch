@@ -4,14 +4,14 @@ import urllib2
 import xlwt
 from bs4 import BeautifulSoup
 
-date = sys.argv[1]
+stock = sys.argv[1]
 begin = sys.argv[2]
 end = sys.argv[3]
 
 wb = xlwt.Workbook()
 ws = wb.add_sheet('a test sheet')
 
-url = "http://" + date + ".stock.inv.org.cn/quote/history.php"
+url = "http://" + stock + ".stock.inv.org.cn/quote/history.php"
 values = {
         "type": "daily",
         "begin_day": begin,
@@ -48,5 +48,5 @@ for tr in rows:
 
     x = x + 1
 
-filename = date + "_" + begin + "_" + end +".xls"
+filename = stock + "_" + begin + "_" + end +".xls"
 wb.save(filename)
